@@ -8,6 +8,7 @@ public class EBudgetApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EBudgetApplication.class, args);
-	}
+		System.out.println("E-Budget application Running");
 
+}
 }
