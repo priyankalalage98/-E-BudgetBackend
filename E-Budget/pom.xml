@@ -5,18 +5,25 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.4</version>
+		<version>2.5.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>E-Budget</groupId>
+	</parent>	<groupId>E-Budget</groupId>
 	<artifactId>E-Budget</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>E-Budget</name>
 	<description>E-Budget project</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>19</java.version>
 	</properties>
+	
 	<dependencies>
+	<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.5.5</version>
+    <type>pom</type>
+</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -35,18 +42,6 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-   			<groupId>javax.persistence</groupId>
-   			<artifactId>persistence-api</artifactId>
-   			<version>1.0.2</version>
-            <scope>provided</scope>
-        </dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-		</dependency>
-		
-		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <exclusions>
@@ -56,24 +51,51 @@
         	 </exclusion>
     		</exclusions>
 		</dependency>
+		<dependency>
+   			<groupId>javax.persistence</groupId>
+   			<artifactId>persistence-api</artifactId>
+   			<version>1.0.2</version>
+            <scope>provided</scope>
+        </dependency>
+       <dependency>
+           <groupId>mysql</groupId>
+           <artifactId>mysql-connector-java</artifactId>
+           <scope>runtime</scope>
+       </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		
+		
 		
 		<dependency>
     		<groupId>org.apache.tomcat</groupId>
     		<artifactId>tomcat-jdbc</artifactId>
     		<version>9.0.37</version>
 		</dependency>
-		
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		
+	
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
-	
+	<dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+    <scope>runtime</scope>
+</dependency>
+		
+		
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-entitymanager</artifactId>
+    <version>6.0.0.Alpha7</version>
+    <type>pom</type>
+</dependency>
+		
+		
+		
 		
 	</dependencies>
 
