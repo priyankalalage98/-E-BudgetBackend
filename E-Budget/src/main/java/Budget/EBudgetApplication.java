@@ -1,4 +1,4 @@
-package EBudget;
+package Budget;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +8,7 @@ public class EBudgetApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EBudgetApplication.class, args);
-		System.out.println("E-Budget application..");
+		System.out.println("E-Budget application...");
 
 }
 }
