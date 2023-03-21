@@ -1,11 +1,14 @@
 package Budget.Dto;
 
+import java.util.List;
+
+import Budget.Model.FindAllVendorModel;
 import lombok.Data;
 
 @Data
 public class VendorDto {
 	private Integer id;
-	private String vendorName;
+	private List<FindAllVendorModel> vendorName;
 	private String contactNumber;
 	private String email;
 	private String address;
@@ -16,10 +19,10 @@ public class VendorDto {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getVendorName() {
+	public List<FindAllVendorModel> getVendorName() {
 		return vendorName;
 	}
-	public void setVendorName(String vendorName) {
+	public void setVendorName(List<FindAllVendorModel> vendorName) {
 		this.vendorName = vendorName;
 	}
 	public String getContactNumber() {

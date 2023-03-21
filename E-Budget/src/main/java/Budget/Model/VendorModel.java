@@ -1,8 +1,12 @@
 package Budget.Model;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -26,11 +30,11 @@ public class VendorModel {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getVendorName() {
+	public List<FindAllVendorModel> getVendorName() {
 		return vendorName;
 	}
-	public void setVendorName(String vendorName) {
-		this.vendorName = vendorName;
+	public void setVendorName(List<FindAllVendorModel> string) {
+		this.vendorName = string;
 	}
 	public String getContactNumber() {
 		return contactNumber;
@@ -50,7 +54,8 @@ public class VendorModel {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	private String vendorName;
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<FindAllVendorModel> vendorName;
 	private String contactNumber;
 	private String email;
 	private String address;
