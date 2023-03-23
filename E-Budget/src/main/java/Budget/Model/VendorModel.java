@@ -24,20 +24,32 @@ public class VendorModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	//@ManyToMany(cascade = CascadeType.ALL)
+	private String vendorName;
+	private String contactNumber;
+	private String email;
+	private String address;
+	
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public List<FindAllVendorModel> getVendorName() {
-		return vendorName;
-	}
-	public void setVendorName(List<FindAllVendorModel> string) {
-		this.vendorName = string;
-	}
+//	public List<FindAllVendorModel> getVendorName() {
+//		return vendorName;
+//	}
+//	public void setVendorName(List<FindAllVendorModel> string) {
+//		this.vendorName = string;
+//	}
 	public String getContactNumber() {
 		return contactNumber;
+	}
+	public String getVendorName() {
+		return vendorName;
+	}
+	public void setVendorName(String vendorName) {
+		this.vendorName = vendorName;
 	}
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
@@ -54,11 +66,6 @@ public class VendorModel {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	@ManyToMany(cascade = CascadeType.ALL)
-	private List<FindAllVendorModel> vendorName;
-	private String contactNumber;
-	private String email;
-	private String address;
 	
 
 }

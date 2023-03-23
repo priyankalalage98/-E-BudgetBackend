@@ -11,7 +11,7 @@ import Budget.Service.SubCategoryService;
 
 @RestController
 
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("http://10.44.33.196:4200")
 
 public class SubCategoryController {
 	@Autowired

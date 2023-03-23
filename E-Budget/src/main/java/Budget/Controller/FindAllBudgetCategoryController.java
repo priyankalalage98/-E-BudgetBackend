@@ -6,16 +6,19 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import Budget.Service.FindAllVendorService;
+import Budget.Service.FindAllBudgetCategoryService;
+
+
 @CrossOrigin("http://10.44.33.196:4200")
 @RestController
-public class FindAllVendorController {
+public class FindAllBudgetCategoryController {
 	@Autowired
-	private  FindAllVendorService findAllVendorService;
+	private  FindAllBudgetCategoryService findAllBudgetCategoryService;
 	
-	@GetMapping("/findAllVendor")
-	public ResponseEntity findAllVendor() {
-		return ResponseEntity.ok(findAllVendorService.findAll());
+	@GetMapping("/findAllBudgetCategory")
+	
+	public ResponseEntity findAllBudgetCreation() {
+		return ResponseEntity.ok(findAllBudgetCategoryService.findAll());
 	}
 	
 
