@@ -1,9 +1,16 @@
 package Budget.Service;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import com.ibm.icu.util.Calendar;
 
 import Budget.Dto.BudgetCategoryDto;
 import Budget.Dto.VendorDto;
@@ -17,23 +24,47 @@ public class BudgetCategoryService {
 	@Autowired
 	private BudgetCategoryRepository budgetCategoryRepository;
 
-//	public BudgetCategoryModel addBudgetCategory(BudgetCategoryDto budgetCategoryDto) {
-//
-//		BudgetCategoryModel budgetCategoryModel = new BudgetCategoryModel();
-//
-//		budgetCategoryModel.setBudgetCategoryName(budgetCategoryDto.getBudgetCategoryName());
-//		budgetCategoryModel.setBudgetCategoryDescription(budgetCategoryDto.getBudgetCategoryDescription());
-//		budgetCategoryModel = budgetCategoryRepository.save(budgetCategoryModel);
-public  ResponseEntity<BudgetCategoryModel> addBudgetCategory(BudgetCategoryDto budgetCategoryDto) {
-		
-	BudgetCategoryModel budgetCategoryModel = new BudgetCategoryModel();
-		
-	budgetCategoryModel.setBudgetCategoryName(budgetCategoryDto.getBudgetCategoryName());
-	budgetCategoryModel.setBudgetCategoryDescription(budgetCategoryDto.getBudgetCategoryDescription());
-	
-	budgetCategoryModel=budgetCategoryRepository.save(budgetCategoryModel);
-		
-	return new ResponseEntity<>(budgetCategoryModel,HttpStatus.OK);
-//		return budgetCategoryModel;
+	public Object findAll() {
+		return budgetCategoryRepository.findAll();
 	}
+
+	public ResponseEntity<Integer> addBudgetCategory(BudgetCategoryDto budgetCategoryDto) {
+
+		BudgetCategoryModel budgetCategoryModel = new BudgetCategoryModel();
+
+		budgetCategoryModel.setBudgetCategoryName(budgetCategoryDto.getBudgetCategoryName());
+		budgetCategoryModel.setRemark(budgetCategoryDto.getRemark());
+		
+		budgetCategoryModel = budgetCategoryRepository.save(budgetCategoryModel);
+
+		return new ResponseEntity<>(budgetCategoryModel.getId(), HttpStatus.OK);
+	
+	}
+
+	public Optional<BudgetCategoryModel> findById(long id) {
+		return budgetCategoryRepository.findById((int) id);
+	}
+
+	public void deleteBudgetCategory(long id) {
+		budgetCategoryRepository.deleteById((int) id);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
+
+
+
+

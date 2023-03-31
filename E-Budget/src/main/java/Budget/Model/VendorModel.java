@@ -1,4 +1,5 @@
 package Budget.Model;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -19,53 +20,84 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name ="Vendor")
+@Table(name = "VendorMaster")
 public class VendorModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	//@ManyToMany(cascade = CascadeType.ALL)
-	private String vendorName;
-	private String contactNumber;
-	private String email;
-	private String address;
 	
+	private String vendorCompanyName;
+	private String email;
+	
+	private String address;
+	private String vendorSapCode;
+	private String contactPersonName;
+	private String mobileNumber;;
+	private String landLineNumber;
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-//	public List<FindAllVendorModel> getVendorName() {
-//		return vendorName;
-//	}
-//	public void setVendorName(List<FindAllVendorModel> string) {
-//		this.vendorName = string;
-//	}
-	public String getContactNumber() {
-		return contactNumber;
+
+	public String getVendorCompanyName() {
+		return vendorCompanyName;
 	}
-	public String getVendorName() {
-		return vendorName;
+
+	public void setVendorCompanyName(String vendorCompanyName) {
+		this.vendorCompanyName = vendorCompanyName;
 	}
-	public void setVendorName(String vendorName) {
-		this.vendorName = vendorName;
-	}
-	public void setContactNumber(String contactNumber) {
-		this.contactNumber = contactNumber;
-	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+
+	public String getVendorSapCode() {
+		return vendorSapCode;
+	}
+
+	public void setVendorSapCode(String vendorSapCode) {
+		this.vendorSapCode = vendorSapCode;
+	}
+
+	public String getContactPersonName() {
+		return contactPersonName;
+	}
+
+	public void setContactPersonName(String contactPersonName) {
+		this.contactPersonName = contactPersonName;
+	}
+
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+
+	public String getLandLineNumber() {
+		return landLineNumber;
+	}
+
+	public void setLandLineNumber(String landLineNumber) {
+		this.landLineNumber = landLineNumber;
+	}
+	// @ManyToMany(cascade = CascadeType.ALL)
 
 }
