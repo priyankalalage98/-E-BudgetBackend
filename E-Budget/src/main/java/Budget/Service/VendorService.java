@@ -25,7 +25,7 @@ public class VendorService {
 
 	}
 
-	public ResponseEntity<Integer> addVendor(VendorDto vendorDto) {
+	public ResponseEntity<VendorModel> addVendor(VendorDto vendorDto) {
 
 		VendorModel vendorModel = new VendorModel();
 
@@ -38,7 +38,7 @@ public class VendorService {
 		vendorModel.setLandLineNumber(vendorDto.getLandLineNumber());
 		vendorModel = vendorRepository.save(vendorModel);
 
-		return new ResponseEntity<>(vendorModel.getId(), HttpStatus.OK);
+		return new ResponseEntity<>(vendorModel, HttpStatus.OK);
 
 	}
 	public Optional<VendorModel>findById(long id){
@@ -46,4 +46,12 @@ public class VendorService {
 	}
 	
 	public void deleteVendor(long id) {vendorRepository.deleteById((int) id);}
+	
+	
+	public VendorModel updateVendor(VendorModel vendorModel) {
+		// TODO Auto-generated method stub
+		return vendorRepository.save(vendorModel);
+	}
+
+	
 }

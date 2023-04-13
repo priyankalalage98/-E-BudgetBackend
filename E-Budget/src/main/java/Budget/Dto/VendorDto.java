@@ -1,21 +1,42 @@
 package Budget.Dto;
 
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.List;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
 @Data
 public class VendorDto {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String vendorCompanyName;
 	private String email;
-	
+
 	private String address;
 	private String vendorSapCode;
 	private String contactPersonName;
 	private String mobileNumber;;
 	private String landLineNumber;
+
+	@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	public ZonedDateTime getActivation_date() {
+		return activation_date;
+	}
+
+	public void setActivation_date(ZonedDateTime activation_date) {
+		this.activation_date = activation_date;
+	}
+
+	private ZonedDateTime activation_date = ZonedDateTime.now();
 
 	public int getId() {
 		return id;
@@ -25,8 +46,6 @@ public class VendorDto {
 		this.id = id;
 	}
 
-
-	
 	public String getVendorCompanyName() {
 		return vendorCompanyName;
 	}
@@ -43,7 +62,6 @@ public class VendorDto {
 		this.email = email;
 	}
 
-	
 	public String getAddress() {
 		return address;
 	}

@@ -1,5 +1,8 @@
 package Budget.Model;
 
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,6 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.springframework.data.annotation.CreatedDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,6 +41,35 @@ public class VendorModel {
 	private String contactPersonName;
 	private String mobileNumber;;
 	private String landLineNumber;
+	
+	
+	  @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	 public ZonedDateTime getActivation_date() {
+		return activation_date;
+	}
+
+	public void setActivation_date(ZonedDateTime activation_date) {
+		this.activation_date = activation_date;
+	}
+
+	private ZonedDateTime activation_date = ZonedDateTime.now();
+//	@CreatedDate
+//	private Date CreatedDate =new Date(System.currentTimeMillis());
+//	public Date getCreatedDate() {
+//		return CreatedDate;
+//	}
+//	private  LocalTime time = LocalTime.now();
+//	public LocalTime getTime() {
+//		return time;
+//	}
+//
+//	public void setTime(LocalTime time) {
+//		this.time = time;
+//	}
+//
+//	public void setCreatedDate(Date createdDate) {
+//		CreatedDate = createdDate;
+//	}
 
 	public Integer getId() {
 		return id;

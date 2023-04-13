@@ -1,5 +1,8 @@
 package Budget.Model;
 
+import java.time.ZonedDateTime;
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GeneratorType;
+import org.springframework.data.annotation.CreatedDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +29,24 @@ public class BudgetCreationModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	private int budgetCode;
+	private String capitalAmount;
+	private String revenueAmount;
+	private String remark;
+	
+	
+	
+	  @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+		 public ZonedDateTime getActivation_date() {
+			return activation_date;
+		}
+
+		public void setActivation_date(ZonedDateTime activation_date) {
+			this.activation_date = activation_date;
+		}
+
+		private ZonedDateTime activation_date = ZonedDateTime.now();
+	
 	public int getId() {
 		return id;
 	}
@@ -31,8 +55,7 @@ public class BudgetCreationModel {
 		this.id = id;
 	}
 
-	private int budgetCode;
-	private String capitalAmount;
+	
 
 	public String getCapitalAmount() {
 		return capitalAmount;
@@ -49,9 +72,6 @@ public class BudgetCreationModel {
 	public void setRevenueAmount(String revenueAmount) {
 		this.revenueAmount = revenueAmount;
 	}
-
-	private String revenueAmount;
-	private String remark;
 
 	public String getBudgetCategoryDescription() {
 		return budgetCategoryDescription;

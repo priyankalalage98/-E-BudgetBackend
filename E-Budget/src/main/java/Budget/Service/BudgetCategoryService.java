@@ -28,18 +28,20 @@ public class BudgetCategoryService {
 		return budgetCategoryRepository.findAll();
 	}
 
-	public ResponseEntity<Integer> addBudgetCategory(BudgetCategoryDto budgetCategoryDto) {
+	public ResponseEntity<BudgetCategoryModel> addBudgetCategory(BudgetCategoryDto budgetCategoryDto) {
 
 		BudgetCategoryModel budgetCategoryModel = new BudgetCategoryModel();
 
 		budgetCategoryModel.setBudgetCategoryName(budgetCategoryDto.getBudgetCategoryName());
 		budgetCategoryModel.setRemark(budgetCategoryDto.getRemark());
-		
+		budgetCategoryModel.setStatus(budgetCategoryDto.isStatus());
 		budgetCategoryModel = budgetCategoryRepository.save(budgetCategoryModel);
 
-		return new ResponseEntity<>(budgetCategoryModel.getId(), HttpStatus.OK);
-	
+		return new ResponseEntity<>(budgetCategoryModel, HttpStatus.OK);
+		
+
 	}
+	
 
 	public Optional<BudgetCategoryModel> findById(long id) {
 		return budgetCategoryRepository.findById((int) id);
@@ -48,14 +50,18 @@ public class BudgetCategoryService {
 	public void deleteBudgetCategory(long id) {
 		budgetCategoryRepository.deleteById((int) id);
 	}
+
+	public BudgetCategoryModel updateBudgetCategory(BudgetCategoryModel budgetCategoryModel) {
+		// TODO Auto-generated method stub
+		return budgetCategoryRepository.save(budgetCategoryModel);
+	}
+
+	
+
 	
 	
-	
-	
-	
-	
-	
-	
+
+		
 	
 	
 	

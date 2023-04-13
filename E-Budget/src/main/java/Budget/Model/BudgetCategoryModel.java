@@ -1,8 +1,9 @@
 package Budget.Model;
 
-
-
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -11,7 +12,9 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,6 +25,9 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import Budget.Dto.SubCategoryDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,31 +46,40 @@ public class BudgetCategoryModel {
 	private Integer id;
 	private String budgetCategoryName;
 	private String remark;
-	private String active;
-	
+	private boolean status;
 	@CreatedBy
 	protected String createdBy;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@CreatedDate
-	private Date CreatedDate;
-	
-	@LastModifiedBy
-	protected String lastModifiedBy;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@LastModifiedDate
-	protected Date lastModifiedDate;
-	
-	
-	
-	
-	public String getActive() {
-		return active;
+	private ZonedDateTime activation_date = ZonedDateTime.now();
+
+	@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	public ZonedDateTime getActivation_date() {
+		return activation_date;
 	}
 
-	public void setActive(String active) {
-		this.active = active;
+	public void setActivation_date(ZonedDateTime activation_date) {
+		this.activation_date = activation_date;
+	}
+
+	// Mapping the column of this table
+	@ManyToOne
+	// Adding the name
+	@JoinColumn(name = "sub_category_name")
+	SubCategoryModel subCategoryModel;
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 
 	public Integer getId() {
@@ -90,9 +105,5 @@ public class BudgetCategoryModel {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	
-	
-
-	
 
 }

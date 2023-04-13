@@ -11,8 +11,8 @@ import Budget.Dto.BudgetCreationDto;
 import Budget.Service.BudgetCreationService;
 
 @RestController
-@CrossOrigin("http://10.44.33.196:4200")
-
+//@CrossOrigin("http://10.44.33.127:4200")
+@CrossOrigin("http://localhost:4200")
 public class BudgetCreationController {
 	@Autowired
 	private BudgetCreationService budgetCreationService;

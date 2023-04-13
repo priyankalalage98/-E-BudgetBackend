@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import Budget.Dto.BudgetCategoryDto;
 import Budget.Dto.SubCategoryDto;
 import Budget.Model.BudgetCategoryModel;
 import Budget.Model.SubCategoryModel;
@@ -22,17 +23,23 @@ public class SubCategoryService {
 		return subCategoryRepository.findAll();
 
 	}
+//@Autowired
+//private BudgetCategoryModel budgetCategoryModel;
+//
+//@Autowired
+//private BudgetCategoryDto budgetCategoryDto;
 
 	public ResponseEntity<SubCategoryModel> addSubCategory(SubCategoryDto subCategoryDto) {
 
 		SubCategoryModel subCategoryModel = new SubCategoryModel();
-
 		subCategoryModel.setBudgetSubCategoryName(subCategoryDto.getBudgetSubCategoryName());
+		subCategoryModel.setBudgetCategoryName(subCategoryDto.getBudgetCategoryName());
 		subCategoryModel.setBudgetCode(subCategoryDto.getBudgetCode());
 		subCategoryModel.setRemark(subCategoryDto.getRemark());
-		subCategoryModel.setActive(subCategoryDto.getActive());
+		subCategoryModel.setStatus(subCategoryDto.isStatus());
 		subCategoryModel.setBudgetType(subCategoryDto.getBudgetType());
 		subCategoryModel = subCategoryRepository.save(subCategoryModel);
+//		subCategoryModel.setCreatedDate(subCategoryDto.getCreatedDate());
 
 		return new ResponseEntity<>(subCategoryModel, HttpStatus.OK);
 
@@ -45,4 +52,10 @@ public class SubCategoryService {
 	public void deleteSubCategory(long id) {
 		subCategoryRepository.deleteById((int) id);
 	}
+	
+	public SubCategoryModel updateBudgetSubCategory(SubCategoryModel subCategoryModel) {
+		// TODO Auto-generated method stub
+		return subCategoryRepository.save(subCategoryModel);
+	}
+
 }
