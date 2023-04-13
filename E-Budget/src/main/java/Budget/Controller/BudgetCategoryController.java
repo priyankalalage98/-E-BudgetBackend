@@ -37,12 +37,7 @@ public class BudgetCategoryController {
 
 		return ResponseEntity.ok(budgetcategoryService.addBudgetCategory(budgetCategoryDto));
 	}
-//	@PutMapping("/{id}")
-//
-//	public ResponseEntity editBudgetCategory(@RequestBody BudgetCategoryDto budgetCategoryDto) {
-//
-//		return ResponseEntity.ok(budgetcategoryService.editBudgetCategory(budgetCategoryDto));
-//	}
+
 
 	@GetMapping("/findAllBudgetCategory")
 
