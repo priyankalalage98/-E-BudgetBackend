@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -29,22 +30,25 @@ import lombok.Setter;
 @Setter
 @Table(name = "VendorMaster")
 public class VendorModel {
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+	@GenericGenerator(name = "native", strategy = "native")
+
 	private Integer id;
-	
+
 	private String vendorCompanyName;
 	private String email;
-	
+
 	private String address;
 	private String vendorSapCode;
 	private String contactPersonName;
 	private String mobileNumber;;
 	private String landLineNumber;
-	
-	
-	  @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-	 public ZonedDateTime getActivation_date() {
+
+	@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	public ZonedDateTime getActivation_date() {
 		return activation_date;
 	}
 

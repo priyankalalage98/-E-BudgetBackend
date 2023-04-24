@@ -13,18 +13,23 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import Budget.Model.BudgetCategoryModel;
+import Budget.Repository.SubCategoryRepository;
 import lombok.Data;
 
 @Data
 public class SubCategoryDto {
 
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+	@GenericGenerator(name = "native", strategy = "native")
 	private int id;
 	private String budgetCode;
 	private String remark;
@@ -34,7 +39,7 @@ public class SubCategoryDto {
 	private String budgetSubCategoryName;
 
 	private String budgetCategoryName;
-	
+
 //	  Mapping to the other table
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<BudgetCategoryModel> budgetCategoryModel;
@@ -105,5 +110,12 @@ public class SubCategoryDto {
 	public void setBudgetSubCategoryName(String budgetSubCategoryName) {
 		this.budgetSubCategoryName = budgetSubCategoryName;
 	}
+
+//	List<SubCategoryModel>getBudgetCategoryName=SubCategoryRepository.getBudgetCategoryName("computer");
+//	SubCategoryModel.forEach( e ->{
+//		System.out.println(e);
+//		
+//	})
+//	
 
 }

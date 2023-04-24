@@ -9,14 +9,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
 @Data
 public class VendorDto {
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+	@GenericGenerator(name = "native", strategy = "native")
 	private int id;
 	private String vendorCompanyName;
 	private String email;

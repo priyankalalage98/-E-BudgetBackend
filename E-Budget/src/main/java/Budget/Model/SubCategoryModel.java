@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -33,10 +34,13 @@ import lombok.Setter;
 @Setter
 @Table(name = "SubCategoryMaster")
 public class SubCategoryModel {
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+	@GenericGenerator(name = "native", strategy = "native")
 	private Integer id;
-	
+
 	private String budgetCode;
 	private String remark;
 	private boolean status;
@@ -44,9 +48,10 @@ public class SubCategoryModel {
 	private String budgetSubCategoryName;
 
 	private String budgetCategoryName;
-	
+
 	@OneToMany(cascade = CascadeType.ALL)
-    private Set<BudgetCategoryModel> budgetCategoryModel;
+	private Set<BudgetCategoryModel> budgetCategoryModel;
+
 	public String getBudgetCategoryName() {
 		return budgetCategoryName;
 	}
@@ -54,65 +59,65 @@ public class SubCategoryModel {
 	public void setBudgetCategoryName(String budgetCategoryName) {
 		this.budgetCategoryName = budgetCategoryName;
 	}
-	
-	
-	@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-		
 
-		private ZonedDateTime activation_date = ZonedDateTime.now();
-	
-	
+	@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+
+	private ZonedDateTime activation_date = ZonedDateTime.now();
+
 	public ZonedDateTime getActivation_date() {
 		return activation_date;
 	}
-	
+
 	public void setActivation_date(ZonedDateTime activation_date) {
 		this.activation_date = activation_date;
 	}
-	
-	
 
-	
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getBudgetCode() {
 		return budgetCode;
 	}
+
 	public void setBudgetCode(String budgetCode) {
 		this.budgetCode = budgetCode;
 	}
+
 	public String getRemark() {
 		return remark;
 	}
+
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	 public boolean isStatus() {
-			return status;
-		}
-		public void setStatus(boolean status) {
-			this.status = status;
-		}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
 	public String getBudgetType() {
 		return budgetType;
 	}
+
 	public void setBudgetType(String budgetType) {
 		this.budgetType = budgetType;
 	}
+
 	public String getBudgetSubCategoryName() {
 		return budgetSubCategoryName;
 	}
+
 	public void setBudgetSubCategoryName(String budgetSubCategoryName) {
 		this.budgetSubCategoryName = budgetSubCategoryName;
 	}
-	
-	
-
-	
-	
 
 }

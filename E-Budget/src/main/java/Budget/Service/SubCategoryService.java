@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import Budget.Dto.BudgetCategoryDto;
 import Budget.Dto.SubCategoryDto;
+
 import Budget.Model.BudgetCategoryModel;
 import Budget.Model.SubCategoryModel;
 import Budget.Repository.SubCategoryRepository;
@@ -23,6 +24,9 @@ public class SubCategoryService {
 		return subCategoryRepository.findAll();
 
 	}
+	
+	
+
 //@Autowired
 //private BudgetCategoryModel budgetCategoryModel;
 //
@@ -56,6 +60,12 @@ public class SubCategoryService {
 	public SubCategoryModel updateBudgetSubCategory(SubCategoryModel subCategoryModel) {
 		// TODO Auto-generated method stub
 		return subCategoryRepository.save(subCategoryModel);
+		
+	}
+	
+	public Object findByBudgetCode(String budgetCode) {
+		return subCategoryRepository.findByBudgetCode( budgetCode);
+
 	}
 
 }

@@ -15,14 +15,21 @@ public class BudgetCreationService {
 	@Autowired
 
 	private BudgetCreationRepository budgetCreationRepository;
-
+	
+	public Object findAll() {
+		return budgetCreationRepository.findAll();
+	}
+	
 	public ResponseEntity<BudgetCreationModel> addBudget(BudgetCreationDto budgetCreationDto) {
 		BudgetCreationModel budgetCreationModel = new BudgetCreationModel();
 
-		budgetCreationModel.setCapitalAmount(budgetCreationDto.getCapitalAmount());
-		budgetCreationModel.setRevenueAmount(budgetCreationDto.getRevenueAmount());
 		budgetCreationModel.setRemark(budgetCreationDto.getRemark());
-		budgetCreationModel.setBudgetCategoryDescription(budgetCreationDto.getBudgetCategoryDescription());
+		budgetCreationModel.setBudgetSubCategoryName(budgetCreationDto.getBudgetSubCategoryName());
+		budgetCreationModel.setBudgetCategoryName(budgetCreationDto.getBudgetCategoryName());
+		budgetCreationModel.setBudgetType(budgetCreationDto.getBudgetType());
+		budgetCreationModel.setAmount(budgetCreationDto.getAmount());
+		budgetCreationModel.setAmountInWords(budgetCreationDto.getAmountInWords());
+		budgetCreationModel.setBudgetCode(budgetCreationDto.getBudgetCode());
 		budgetCreationModel = budgetCreationRepository.save(budgetCreationModel);
 
 		return new ResponseEntity<>(budgetCreationModel, HttpStatus.OK);

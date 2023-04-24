@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -27,9 +28,12 @@ import lombok.Data;
 
 @Data
 public class BudgetCategoryDto {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+	@GenericGenerator(name = "native", strategy = "native")
 	private int id;
+
 	public int getId() {
 		return id;
 	}
@@ -37,7 +41,6 @@ public class BudgetCategoryDto {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
 
 	private String budgetCategoryName;
 	private String remark;

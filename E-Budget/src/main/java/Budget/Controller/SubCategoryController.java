@@ -18,6 +18,7 @@ import Budget.Dto.SubCategoryDto;
 import Budget.Model.BudgetCategoryModel;
 import Budget.Model.SubCategoryModel;
 import Budget.Service.SubCategoryService;
+import antlr.collections.List;
 
 @RestController
 
@@ -61,7 +62,12 @@ public class SubCategoryController {
 
 	}
 
-	
-	
+//	
+	@GetMapping("/budgetCode")
+	public Object budgetCode(@RequestBody String budgetCode) {
+		return categoryService.findByBudgetCode(budgetCode);
+
+	}
+
 
 }
