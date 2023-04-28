@@ -38,7 +38,6 @@ public class BudgetCategoryController {
 		return ResponseEntity.ok(budgetcategoryService.addBudgetCategory(budgetCategoryDto));
 	}
 
-
 	@GetMapping("/findAllBudgetCategory")
 
 	public ResponseEntity findAllBudgetCreation() {

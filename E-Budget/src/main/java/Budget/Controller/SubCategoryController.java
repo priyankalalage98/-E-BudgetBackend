@@ -23,6 +23,7 @@ import antlr.collections.List;
 @RestController
 
 //@CrossOrigin("http://10.44.33.127:4200")
+
 @CrossOrigin("http://localhost:4200")
 @RequestMapping("/subCategory")
 public class SubCategoryController {
@@ -54,8 +55,7 @@ public class SubCategoryController {
 		categoryService.deleteSubCategory(id);
 		return new ResponseEntity("BudgetCategory deleted sucessfully", HttpStatus.OK);
 	}
-	
-	
+
 	@PutMapping("update/{id}")
 	public SubCategoryModel updateBudgetSubCategory(@RequestBody SubCategoryModel subCategoryModel) {
 		return categoryService.updateBudgetSubCategory(subCategoryModel);
@@ -68,6 +68,5 @@ public class SubCategoryController {
 		return categoryService.findByBudgetCode(budgetCode);
 
 	}
-
 
 }

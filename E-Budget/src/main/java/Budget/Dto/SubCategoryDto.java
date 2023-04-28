@@ -25,8 +25,6 @@ import lombok.Data;
 @Data
 public class SubCategoryDto {
 
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
 	@GenericGenerator(name = "native", strategy = "native")
@@ -110,12 +108,5 @@ public class SubCategoryDto {
 	public void setBudgetSubCategoryName(String budgetSubCategoryName) {
 		this.budgetSubCategoryName = budgetSubCategoryName;
 	}
-
-//	List<SubCategoryModel>getBudgetCategoryName=SubCategoryRepository.getBudgetCategoryName("computer");
-//	SubCategoryModel.forEach( e ->{
-//		System.out.println(e);
-//		
-//	})
-//	
 
 }

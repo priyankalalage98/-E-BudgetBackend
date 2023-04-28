@@ -54,6 +54,7 @@ public class BudgetCreationDto {
 	}
 
 	private String budgetCategoryName;
+
 //	  Mapping to the other table
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<BudgetCategoryModel> BudgetCategory;
@@ -68,6 +69,7 @@ public class BudgetCreationDto {
 
 	private String budgetSubCategoryName;
 //	  Mapping to the other table
+
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<SubCategoryModel> subCategory;
 
@@ -80,6 +82,7 @@ public class BudgetCreationDto {
 	}
 
 	private String budgetCode;
+
 //	  Mapping to the other table
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<SubCategoryModel> BudgetCode;

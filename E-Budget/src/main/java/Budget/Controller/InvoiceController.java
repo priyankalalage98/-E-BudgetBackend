@@ -9,27 +9,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import Budget.Dto.BudgetCreationDto;
-import Budget.Service.BudgetCreationService;
+import Budget.Dto.BudgetCategoryDto;
+import Budget.Dto.InvoiceDto;
+import Budget.Service.BudgetCategoryService;
+import Budget.Service.InvoiceService;
 
 @RestController
-@RequestMapping("/budgetCreation")
+
 //@CrossOrigin("http://10.44.33.127:4200")
 @CrossOrigin("http://localhost:4200")
-public class BudgetCreationController {
+
+@RequestMapping("/invoice")
+public class InvoiceController {
 	@Autowired
-	private BudgetCreationService budgetCreationService;
 
-	@PostMapping("/createbudget")
+	private InvoiceService invoiceService;
 
-	public ResponseEntity addBudget(@RequestBody BudgetCreationDto budgetCreationDto) {
-		return ResponseEntity.ok(budgetCreationService.addBudget(budgetCreationDto));
+	@PostMapping("/addInvoice")
+
+	public ResponseEntity addInvoice(@RequestBody InvoiceDto invoiceDto) {
+
+		return ResponseEntity.ok(invoiceService.addInvoice(invoiceDto));
 	}
+	@GetMapping("/findAllInvoice")
 
-	@GetMapping("/findAllBudgetCreation")
-
-	public ResponseEntity findAllBudgetCreation() {
-		return ResponseEntity.ok(budgetCreationService.findAll());
+	public ResponseEntity findAllInvoice() {
+		return ResponseEntity.ok(invoiceService.findAll());
 	}
-
 }
