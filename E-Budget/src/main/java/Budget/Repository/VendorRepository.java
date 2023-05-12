@@ -9,5 +9,4 @@ import Budget.Model.VendorModel;
 @Repository
 public interface VendorRepository  extends JpaRepository<VendorModel, Integer>{
 
-//	SubCategoryModel findBySubCategoryDescription(String SubCategoryDescription);
 }

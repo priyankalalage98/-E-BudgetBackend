@@ -1,7 +1,6 @@
 package Budget.Controller;
 
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import Budget.Dto.SubCategoryDto;
-import Budget.Model.BudgetCategoryModel;
 import Budget.Model.SubCategoryModel;
 import Budget.Service.SubCategoryService;
-import antlr.collections.List;
 
 @RestController
 
@@ -27,18 +24,14 @@ import antlr.collections.List;
 @RequestMapping("/subCategory")
 public class SubCategoryController {
 	@Autowired
-
 	private SubCategoryService categoryService;
 
 	@PostMapping("/subCategory")
-
 	public ResponseEntity addSubCategory(@RequestBody SubCategoryDto subCategoryDto) {
-
 		return ResponseEntity.ok(categoryService.addSubCategory(subCategoryDto));
 	}
 
 	@GetMapping("/findAllBudgetSubCategory")
-
 	public ResponseEntity findAllBudgetCreation() {
 		return ResponseEntity.ok(categoryService.findAll());
 	}
@@ -46,7 +39,6 @@ public class SubCategoryController {
 	@GetMapping("/{id}")
 	public Optional<SubCategoryModel> getBudgetSubCategoryDetails(@PathVariable long id) {
 		return categoryService.findById(id);
-
 	}
 
 	@DeleteMapping("/{id}")
@@ -54,20 +46,11 @@ public class SubCategoryController {
 		categoryService.deleteSubCategory(id);
 		return new ResponseEntity("BudgetCategory deleted sucessfully", HttpStatus.OK);
 	}
-	
-	
+
 	@PutMapping("update/{id}")
 	public SubCategoryModel updateBudgetSubCategory(@RequestBody SubCategoryModel subCategoryModel) {
 		return categoryService.updateBudgetSubCategory(subCategoryModel);
 
 	}
-
-//	
-	@GetMapping("/budgetCode")
-	public Object budgetCode(@RequestBody String budgetCode) {
-		return categoryService.findByBudgetCode(budgetCode);
-
-	}
-
 
 }

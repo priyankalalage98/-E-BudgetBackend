@@ -22,7 +22,6 @@ import Budget.Model.VendorModel;
 import Budget.Service.BudgetCategoryService;
 
 @RestController
-
 //@CrossOrigin("http://10.44.33.127:4200")
 @CrossOrigin("http://localhost:4200")
 @RequestMapping("/budgetCategory")
@@ -32,15 +31,12 @@ public class BudgetCategoryController {
 	private BudgetCategoryService budgetcategoryService;
 
 	@PostMapping("/budgetCategory")
-
 	public ResponseEntity addBudgetCategory(@RequestBody BudgetCategoryDto budgetCategoryDto) {
 
 		return ResponseEntity.ok(budgetcategoryService.addBudgetCategory(budgetCategoryDto));
 	}
 
-
 	@GetMapping("/findAllBudgetCategory")
-
 	public ResponseEntity findAllBudgetCreation() {
 		return ResponseEntity.ok(budgetcategoryService.findAll());
 	}

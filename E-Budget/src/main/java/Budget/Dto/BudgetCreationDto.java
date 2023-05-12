@@ -28,6 +28,9 @@ public class BudgetCreationDto {
 	private String budgetType;
 	private String amount;
 	private String amountInWords;
+	private String budgetCategoryName;
+	private String budgetSubCategoryName;
+	private String budgetCode;
 
 	public String getAmountInWords() {
 		return amountInWords;
@@ -53,7 +56,6 @@ public class BudgetCreationDto {
 		this.budgetType = budgetType;
 	}
 
-	private String budgetCategoryName;
 //	  Mapping to the other table
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<BudgetCategoryModel> BudgetCategory;
@@ -66,7 +68,6 @@ public class BudgetCreationDto {
 		this.budgetCategoryName = budgetCategoryName;
 	}
 
-	private String budgetSubCategoryName;
 //	  Mapping to the other table
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<SubCategoryModel> subCategory;
@@ -79,7 +80,6 @@ public class BudgetCreationDto {
 		this.budgetSubCategoryName = budgetSubCategoryName;
 	}
 
-	private String budgetCode;
 //	  Mapping to the other table
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<SubCategoryModel> BudgetCode;

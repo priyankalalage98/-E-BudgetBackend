@@ -1,32 +1,20 @@
 package Budget.Dto;
 
-import java.time.LocalTime;
 import java.time.ZonedDateTime;
-import java.util.Date;
-import java.util.List;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.CreatedDate;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 import Budget.Model.BudgetCategoryModel;
-import Budget.Repository.SubCategoryRepository;
 import lombok.Data;
 
 @Data
 public class SubCategoryDto {
 
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
 	@GenericGenerator(name = "native", strategy = "native")
@@ -35,9 +23,7 @@ public class SubCategoryDto {
 	private String remark;
 	private boolean status;
 	private String budgetType;
-	@CreatedDate
 	private String budgetSubCategoryName;
-
 	private String budgetCategoryName;
 
 //	  Mapping to the other table
@@ -110,12 +96,5 @@ public class SubCategoryDto {
 	public void setBudgetSubCategoryName(String budgetSubCategoryName) {
 		this.budgetSubCategoryName = budgetSubCategoryName;
 	}
-
-//	List<SubCategoryModel>getBudgetCategoryName=SubCategoryRepository.getBudgetCategoryName("computer");
-//	SubCategoryModel.forEach( e ->{
-//		System.out.println(e);
-//		
-//	})
-//	
 
 }

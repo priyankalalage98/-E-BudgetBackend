@@ -32,7 +32,13 @@ public class BudgetCategoryDto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
 	@GenericGenerator(name = "native", strategy = "native")
+
 	private int id;
+	private String budgetCategoryName;
+	private String remark;
+	private boolean status;
+	protected String createdBy;
+	private ZonedDateTime activation_date = ZonedDateTime.now();
 
 	public int getId() {
 		return id;
@@ -41,13 +47,6 @@ public class BudgetCategoryDto {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	private String budgetCategoryName;
-	private String remark;
-	private boolean status;
-	protected String createdBy;
-
-	private ZonedDateTime activation_date = ZonedDateTime.now();
 
 	@JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
 	public ZonedDateTime getActivation_date() {
@@ -60,7 +59,7 @@ public class BudgetCategoryDto {
 
 //		  Mapping the column of this table
 	@ManyToOne
-	// Adding the name
+	
 	@JoinColumn(name = "sub_category_name")
 	SubCategoryDto subCategoryDto;
 

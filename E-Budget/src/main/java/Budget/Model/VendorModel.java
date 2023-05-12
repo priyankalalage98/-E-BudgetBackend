@@ -1,23 +1,13 @@
 package Budget.Model;
 
-import java.time.LocalTime;
 import java.time.ZonedDateTime;
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.CreatedDate;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,17 +20,14 @@ import lombok.Setter;
 @Setter
 @Table(name = "VendorMaster")
 public class VendorModel {
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
 	@GenericGenerator(name = "native", strategy = "native")
 
 	private Integer id;
-
 	private String vendorCompanyName;
 	private String email;
-
 	private String address;
 	private String vendorSapCode;
 	private String contactPersonName;
@@ -57,23 +44,6 @@ public class VendorModel {
 	}
 
 	private ZonedDateTime activation_date = ZonedDateTime.now();
-//	@CreatedDate
-//	private Date CreatedDate =new Date(System.currentTimeMillis());
-//	public Date getCreatedDate() {
-//		return CreatedDate;
-//	}
-//	private  LocalTime time = LocalTime.now();
-//	public LocalTime getTime() {
-//		return time;
-//	}
-//
-//	public void setTime(LocalTime time) {
-//		this.time = time;
-//	}
-//
-//	public void setCreatedDate(Date createdDate) {
-//		CreatedDate = createdDate;
-//	}
 
 	public Integer getId() {
 		return id;
@@ -138,6 +108,5 @@ public class VendorModel {
 	public void setLandLineNumber(String landLineNumber) {
 		this.landLineNumber = landLineNumber;
 	}
-	// @ManyToMany(cascade = CascadeType.ALL)
 
 }

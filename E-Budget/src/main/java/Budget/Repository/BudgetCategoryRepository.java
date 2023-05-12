@@ -8,7 +8,4 @@ import Budget.Model.BudgetCategoryModel;
 @Repository
 public interface BudgetCategoryRepository extends JpaRepository<BudgetCategoryModel, Integer> {
 
-//	void updateById(int id);
-
-
 }

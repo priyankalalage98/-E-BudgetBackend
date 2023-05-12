@@ -17,15 +17,13 @@ import lombok.Data;
 
 @Data
 public class VendorDto {
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
 	@GenericGenerator(name = "native", strategy = "native")
 	private int id;
 	private String vendorCompanyName;
 	private String email;
-
 	private String address;
 	private String vendorSapCode;
 	private String contactPersonName;

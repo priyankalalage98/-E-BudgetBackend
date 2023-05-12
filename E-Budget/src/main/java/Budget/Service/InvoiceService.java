@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
-
 import Budget.Dto.InvoiceDto;
 import Budget.Model.InvoiceModel;
 import Budget.Repository.InvoiceRepository;
@@ -15,6 +14,7 @@ public class InvoiceService {
 
 	@Autowired
 	private InvoiceRepository invoiceRepository;
+
 	InvoiceModel invoiceModel = new InvoiceModel();
 
 	public Object findAll() {
@@ -32,6 +32,7 @@ public class InvoiceService {
 		invoiceModel.setInvoiceReceivedDate(invoiceDto.getInvoiceReceivedDate());
 		invoiceModel.setSendEmail(invoiceDto.getSendEmail());
 		invoiceModel = invoiceRepository.save(invoiceModel);
+
 		return new ResponseEntity<>(invoiceModel, HttpStatus.OK);
 	}
 

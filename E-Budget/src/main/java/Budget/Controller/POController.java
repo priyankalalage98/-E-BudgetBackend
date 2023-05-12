@@ -17,11 +17,11 @@ import Budget.Service.POService;
 @RequestMapping("poGeneration")
 @CrossOrigin("http://localhost:4200")
 public class POController {
+
 	@Autowired
 	public POService poService;
 
 	@PostMapping("/generatePO")
-
 	public ResponseEntity addPO(@RequestBody PODto poDto) {
 		return ResponseEntity.ok(poService.addPO(poDto));
 	}

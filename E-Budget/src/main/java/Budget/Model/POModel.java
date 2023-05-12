@@ -1,15 +1,12 @@
 package Budget.Model;
 
 import java.sql.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import org.hibernate.annotations.GenericGenerator;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,6 +29,8 @@ public class POModel {
 	private String poAmount;
 	private String poDescription;
 	private Date poExpiryDate;
+	private String poNumber;
+	private Date poDate;
 
 	public int getId() {
 		return id;
@@ -105,6 +104,4 @@ public class POModel {
 		this.poDate = poDate;
 	}
 
-	private String poNumber;
-	private Date poDate;
 }

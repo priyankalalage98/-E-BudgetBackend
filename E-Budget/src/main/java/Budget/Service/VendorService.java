@@ -1,17 +1,12 @@
 package Budget.Service;
 
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import Budget.Dto.SubCategoryDto;
 import Budget.Dto.VendorDto;
-import Budget.Model.SubCategoryModel;
 import Budget.Model.VendorModel;
-import Budget.Repository.SubCategoryRepository;
 import Budget.Repository.VendorRepository;
 
 @Service
@@ -41,17 +36,18 @@ public class VendorService {
 		return new ResponseEntity<>(vendorModel, HttpStatus.OK);
 
 	}
-	public Optional<VendorModel>findById(long id){
+
+	public Optional<VendorModel> findById(long id) {
 		return vendorRepository.findById((int) id);
 	}
-	
-	public void deleteVendor(long id) {vendorRepository.deleteById((int) id);}
-	
-	
+
+	public void deleteVendor(long id) {
+		vendorRepository.deleteById((int) id);
+	}
+
 	public VendorModel updateVendor(VendorModel vendorModel) {
-		// TODO Auto-generated method stub
+		
 		return vendorRepository.save(vendorModel);
 	}
 
-	
 }

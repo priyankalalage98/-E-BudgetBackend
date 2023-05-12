@@ -1,16 +1,11 @@
 package Budget.Service;
 
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import Budget.Dto.BudgetCategoryDto;
 import Budget.Dto.SubCategoryDto;
-
-import Budget.Model.BudgetCategoryModel;
 import Budget.Model.SubCategoryModel;
 import Budget.Repository.SubCategoryRepository;
 
@@ -22,16 +17,7 @@ public class SubCategoryService {
 
 	public Object findAll() {
 		return subCategoryRepository.findAll();
-
 	}
-	
-	
-
-//@Autowired
-//private BudgetCategoryModel budgetCategoryModel;
-//
-//@Autowired
-//private BudgetCategoryDto budgetCategoryDto;
 
 	public ResponseEntity<SubCategoryModel> addSubCategory(SubCategoryDto subCategoryDto) {
 
@@ -43,7 +29,6 @@ public class SubCategoryService {
 		subCategoryModel.setStatus(subCategoryDto.isStatus());
 		subCategoryModel.setBudgetType(subCategoryDto.getBudgetType());
 		subCategoryModel = subCategoryRepository.save(subCategoryModel);
-//		subCategoryModel.setCreatedDate(subCategoryDto.getCreatedDate());
 
 		return new ResponseEntity<>(subCategoryModel, HttpStatus.OK);
 
@@ -56,15 +41,9 @@ public class SubCategoryService {
 	public void deleteSubCategory(long id) {
 		subCategoryRepository.deleteById((int) id);
 	}
-	
+
 	public SubCategoryModel updateBudgetSubCategory(SubCategoryModel subCategoryModel) {
-		// TODO Auto-generated method stub
 		return subCategoryRepository.save(subCategoryModel);
-		
-	}
-	
-	public Object findByBudgetCode(String budgetCode) {
-		return subCategoryRepository.findByBudgetCode( budgetCode);
 
 	}
 

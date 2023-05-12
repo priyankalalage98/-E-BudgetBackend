@@ -12,9 +12,5 @@ import net.bytebuddy.dynamic.DynamicType.Builder.MethodDefinition.Implementation
 
 @Repository
 public interface SubCategoryRepository extends JpaRepository<SubCategoryModel, Integer> {
-	
-@Query(value="SELECT * from budgetCategoryName subcategory where budgetCode=?1",nativeQuery =true)
-Optional<SubCategoryModel> findByBudgetCode(String budgetCode);
-
 
 }

@@ -17,18 +17,16 @@ import Budget.Service.BudgetCreationService;
 //@CrossOrigin("http://10.44.33.127:4200")
 @CrossOrigin("http://localhost:4200")
 public class BudgetCreationController {
+
 	@Autowired
 	private BudgetCreationService budgetCreationService;
-	
+
 	@PostMapping("/createbudget")
-	
-	public ResponseEntity addBudget(@RequestBody BudgetCreationDto budgetCreationDto)
-	{
+	public ResponseEntity addBudget(@RequestBody BudgetCreationDto budgetCreationDto) {
 		return ResponseEntity.ok(budgetCreationService.addBudget(budgetCreationDto));
 	}
 
 	@GetMapping("/findAllBudgetCreation")
-
 	public ResponseEntity findAllBudgetCreation() {
 		return ResponseEntity.ok(budgetCreationService.findAll());
 	}

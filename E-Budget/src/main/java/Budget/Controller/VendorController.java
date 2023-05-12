@@ -26,14 +26,12 @@ import Budget.Service.VendorService;
 @CrossOrigin("http://localhost:4200")
 @RequestMapping("/vendor")
 public class VendorController {
-	@Autowired
 
+	@Autowired
 	private VendorService vendorService;
 
 	@PostMapping("/vendor")
-
 	public ResponseEntity addVendor(@RequestBody VendorDto vendorDto) {
-
 		return ResponseEntity.ok(vendorService.addVendor(vendorDto));
 	}
 
@@ -41,23 +39,21 @@ public class VendorController {
 	public ResponseEntity findAllVendor() {
 		return ResponseEntity.ok(vendorService.findAll());
 	}
-	
+
 	@GetMapping("/{id}")
-	public Optional<VendorModel>gelVendorDetails(@PathVariable long id){
+	public Optional<VendorModel> gelVendorDetails(@PathVariable long id) {
 		return vendorService.findById(id);
-		
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public ResponseEntity deleteVendor(@PathVariable long id) {
 		vendorService.deleteVendor(id);
-		return new ResponseEntity("vendor deleted sucessfully",HttpStatus.OK);
+		return new ResponseEntity("vendor deleted sucessfully", HttpStatus.OK);
 	}
-	
+
 	@PutMapping("update/{id}")
 	public VendorModel updateVendor(@RequestBody VendorModel vendorModel) {
 		return vendorService.updateVendor(vendorModel);
-
 	}
 
 }

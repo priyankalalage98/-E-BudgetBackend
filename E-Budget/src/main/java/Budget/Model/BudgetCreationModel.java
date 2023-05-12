@@ -1,9 +1,7 @@
 package Budget.Model;
 
 import java.time.ZonedDateTime;
-import java.util.Date;
 import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,13 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.GeneratorType;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.data.annotation.CreatedDate;
-
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,15 +23,16 @@ import lombok.Setter;
 @Entity
 @Table(name = "BudgetCreationMaster")
 public class BudgetCreationModel {
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
 	@GenericGenerator(name = "native", strategy = "native")
 	private int id;
 	private String remark;
-
 	private String budgetType;
+	private String amount;
+	private String budgetCategoryName;
+	private String amountInWords;
 
 	public String getBudgetType() {
 		return budgetType;
@@ -48,8 +42,6 @@ public class BudgetCreationModel {
 		this.budgetType = budgetType;
 	}
 
-	private String amount;
-
 	public String getAmount() {
 		return amount;
 	}
@@ -57,8 +49,6 @@ public class BudgetCreationModel {
 	public void setAmount(String amount) {
 		this.amount = amount;
 	}
-
-	private String amountInWords;
 
 	public String getAmountInWords() {
 		return amountInWords;
@@ -68,7 +58,6 @@ public class BudgetCreationModel {
 		this.amountInWords = amountInWords;
 	}
 
-	private String budgetCategoryName;
 //	  Mapping to the other table
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<BudgetCategoryModel> BudgetCategory;
