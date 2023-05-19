@@ -97,13 +97,60 @@
 
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
+	 <build>
+    <finalName>budget</finalName>
+    <plugins>
+      <plugin>
+       <groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+       
+
+        <configuration>
+          <nodeVersion>v8.9.0</nodeVersion>
+          <npmVersion>5.5.1</npmVersion>
+
+        </configuration>
+
+        <executions>
+          <execution>
+            <id>install node and npm</id>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+          </execution>
+
+          <execution>
+            <id>npm install</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+          </execution>
+
+          <execution>
+            <id>npm run build</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+
+            <configuration>
+              <arguments>run build</arguments>
+              
+              <resources>
+					<resource>
+						<directory>D:\BudgetApplication\E-Budget\E-Budget\dist</directory>
+					</resource>
+				</resources>
+              
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+   
+  </build>
+
+
+
+
 
 </project>
