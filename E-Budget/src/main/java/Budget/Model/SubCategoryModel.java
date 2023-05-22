@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
@@ -33,7 +35,10 @@ public class SubCategoryModel {
 	private String remark;
 	private boolean status;
 	private String budgetType;
+	
 	private String budgetSubCategoryName;
+	@ManyToOne
+	@JoinColumn(name="budget_category_id")
 	private String budgetCategoryName;
 
 	@OneToMany(cascade = CascadeType.ALL)
