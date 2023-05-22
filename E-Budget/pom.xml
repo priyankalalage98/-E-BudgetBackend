@@ -140,10 +140,15 @@
 						<directory>D:\BudgetApplication\E-Budget\E-Budget\dist</directory>
 					</resource>
 				</resources>
-              
+                 <archive>  
+                    <manifest>  
+                        <mainClass>com.javatpoint.AppMain</mainClass>  
+                    </manifest>  
+                </archive>  
             </configuration>
           </execution>
         </executions>
+           
       </plugin>
     </plugins>
    
