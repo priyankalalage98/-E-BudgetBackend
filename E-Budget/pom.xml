@@ -142,7 +142,7 @@
 				</resources>
                  <archive>  
                     <manifest>  
-                        <mainClass>com.javatpoint.AppMain</mainClass>  
+                         <mainClass>Budget.EBudgetApplication</mainClass>
                     </manifest>  
                 </archive>  
             </configuration>
