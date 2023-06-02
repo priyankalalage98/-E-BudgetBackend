@@ -14,7 +14,6 @@
 	<description>E-Budget project</description>
 	<properties>
 		<java.version>17</java.version>
-		<start-class>Budget.EBudgetApplication</start-class>
 	</properties>
 	
 	<dependencies>
@@ -105,7 +104,8 @@
        <groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
        
-
+       
+       
         <configuration>
           <nodeVersion>v8.9.0</nodeVersion>
           <npmVersion>5.5.1</npmVersion>
@@ -133,21 +133,22 @@
               <goal>npm</goal>
             </goals>
 
-            <configuration>
-              <arguments>run build</arguments>
-              
-              <resources>
-					<resource>
-						<directory>D:\BudgetApplication\E-Budget\E-Budget\dist</directory>
-					</resource>
-				</resources>
-                 <archive>  
-                    <manifest>  
-                         <mainClass>Budget.EBudgetApplication</mainClass>
-                         <layout>JAR</layout>
-                    </manifest>  
-                </archive>  
-            </configuration>
+
+
+
+  <configuration>
+					<archive>
+						<manifest>
+							<mainClass>Budget.EBudgetApplication</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+
+
+
+
+
+           
           </execution>
         </executions>
            
