@@ -14,7 +14,6 @@ import Budget.Service.InvoiceService;
 
 @RestController
 @RequestMapping("/invoice")
-@CrossOrigin("http://localhost:4200")
 public class InvoiceController {
 
 	@Autowired

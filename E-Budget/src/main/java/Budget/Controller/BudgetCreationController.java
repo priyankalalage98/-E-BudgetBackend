@@ -14,8 +14,6 @@ import Budget.Service.BudgetCreationService;
 
 @RestController
 @RequestMapping("/budgetCreation")
-//@CrossOrigin("http://10.44.33.127:4200")
-@CrossOrigin("http://localhost:4200")
 public class BudgetCreationController {
 
 	@Autowired

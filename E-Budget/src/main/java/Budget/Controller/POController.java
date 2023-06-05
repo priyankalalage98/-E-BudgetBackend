@@ -15,7 +15,6 @@ import Budget.Service.POService;
 
 @RestController
 @RequestMapping("poGeneration")
-@CrossOrigin("http://localhost:4200")
 public class POController {
 
 	@Autowired

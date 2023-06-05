@@ -22,8 +22,6 @@ import Budget.Model.VendorModel;
 import Budget.Service.BudgetCategoryService;
 
 @RestController
-//@CrossOrigin("http://10.44.33.127:4200")
-@CrossOrigin("http://localhost:4200")
 @RequestMapping("/budgetCategory")
 public class BudgetCategoryController {
 	@Autowired

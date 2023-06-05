@@ -18,9 +18,6 @@ import Budget.Model.SubCategoryModel;
 import Budget.Service.SubCategoryService;
 
 @RestController
-
-//@CrossOrigin("http://10.44.33.127:4200")
-@CrossOrigin("http://localhost:4200")
 @RequestMapping("/subCategory")
 public class SubCategoryController {
 	@Autowired

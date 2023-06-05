@@ -21,9 +21,6 @@ import Budget.Model.VendorModel;
 import Budget.Service.VendorService;
 
 @RestController
-//@CrossOrigin("http://10.44.33.127:4200")
-//@CrossOrigin("http://10.44.33.196:4200")
-@CrossOrigin("http://localhost:4200")
 @RequestMapping("/vendor")
 public class VendorController {
 
